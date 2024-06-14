@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../static/img/logo/sl-soft.ico" rel="shortcut icon">
+    <title>MI PERFIL</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+  <% if (rol===null) { %>
+    <%- include('../partials/nav') %>
+    <div class="text-center my-5">
+      <img src="../../static/img/logo/logo.png" alt="">
+    </div>
+    <div class="container my-5">
+      <div class="alert alert-secondary text-center" role="alert">
+        <h4 class="alert-heading mb-2">¡Acceso Denegado!</h4>
+        <hr>
+        <p class="my-5">Lo siento, no tienes acceso a esta página. Por favor, contacta con el administrador del sistema para obtener ayuda.</p>
+      </div>
+    </div>
+  <% } else if (rol === "cliente") { %>
+     <%- include('../partials/navUsuario') %>
+     <section style="background-color: #eee;">
+      <div class="container py-5">
+        <%misDatos.forEach(function (datoCliente) { %>
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="card mb-4">
+              <div class="card-body text-center">
+                <img src="<%=datoCliente.path%>" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+                <h5 class="my-3">
+                  <%= datoCliente.nombre %>
+                </h5>
+                <p class="text-muted mb-1">
+                  <%= datoCliente.rol %>
+                </p>
+                <div class="d-flex justify-content-center mb-2 p-1">
+                  <button class="btn btn-outline-success" role="button" data-bs-toggle="modal" data-bs-target="#modalActualizar"
+                    onclick="informacionCliente(`<%= datoCliente._id %>`, `<%= datoCliente.nombre %>`, `<%=datoCliente.apellido%>`, `<%=datoCliente.documento%>`, `<%=datoCliente.celular%>`, `<%=datoCliente.email%>`, `<%=datoCliente.direccion%>`, `<%=datoCliente.path%>`)">
+                    <i class="bi bi-pencil"></i>
+                  </button>
+                  <button onclick="informacionCliente( `<%=datoCliente._id%>`,`<%=datoCliente.nombre%>`)" type="button"
+                    class="btn btn-outline-danger ms-2" data-bs-toggle="modal" data-bs-target="#modalEliminar">
+                    <i class="bi bi-trash"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8">
+            <div class="card mb-4">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Nombre completo</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">
+                      <%= datoCliente.nombre %>
+                      <%= datoCliente.apellido %>
+                    </p>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">correo</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">
+                      <%= datoCliente.email %>
+                    </p>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Celular</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">
+                      <%= datoCliente.celular %>
+                    </p>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">documento</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">
+                      <%= datoCliente.documento %>
+                    </p>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">direccion</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">
+                      <%= datoCliente.direccion %>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <%}) %>
+      </div>
+    </section>
+  
+    <div class="modal fade" id="modalActualizar" tabindex="-1" aria-labelledby="modalActualizarLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="modalActualizarLabel">Actualizar mi perfil</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form action="/v1/actualizarClientes" method="post" enctype="multipart/form-data" onsubmit="return validarFormulario()">
+              <div class="form-group">
+                  <input type="text" class="form-control" id="idnuevo" name="idnuevo" hidden>
+                  <label for="nombre" class="form-label mt-2">NOMBRE</label>
+                  <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Juan Camilo"
+                      minlength="3" maxlength="100" pattern="^[a-zA-ZÀ-ÿ\s]{1,40}$" title="SOLO SE PERMITEN LETRAS">
+
+
+                  <label for="apellido" class="form-label mt-2">APELLIDO</label>
+                  <input type="text" class="form-control" name="apellido" id="apellido" placeholder="Martinez Mora"
+                      minlength="3" maxlength="100" pattern="^[a-zA-ZÀ-ÿ\s]{1,40}$" title="SOLO SE PERMITEN LETRAS">
+
+                  <label for="documento" class="form-label mt-2">DOCUMENTO</label>
+                  <input type="number" class="form-control" readonly name="documento" id="documento" minlength="7" maxlength="11" min="0" required>
+          
+                  <label for="celular" class="form-label mt-2">CELULAR</label>
+                  <input type="tel" class="form-control" name="celular" id="celular" minlength="10" required title="NUMERO CELULAR DE 10 NUMEROS">         
+          
+                  <label for="email" class="form-label mt-2">CORREO</label>
+                  <input type="email" class="form-control" name="email" id="email" maxlength="100" required pattern="/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/" title="SE ESPERABA UN CORREO ELECTRONICO">
+          
+                  <label for="direccion" class="form-label mt-2">DIRECCIÓN</label>
+                  <input type="text" class="form-control" name="direccion" id="direccion">
+          
+              </div>
+              <label class="custom-file-label" for="image" aria-describedby="inputGroupFileAddon02">Foto</label>
+              <input type="file" name="image" class="custom-file-input my-2" id="image">
+              <input type="text" name="rutaImagenVieja" id="rutaImagenVieja" hidden>
+              <div class="form-group text-center">
+                  <input type="submit" class="btn btn-success px-5 mt-5" value="Actualizar">
+              </div>
+            </form>           
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Modal Eliminar -->
+    <div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="modalEliminarLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="modalEliminarLabel">Eliminar mi perfil</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div id="contenidoElimiar" class="modal-body">
+  
+          </div>
+          <div class="modal-footer">
+            <form id="eliminar" method="get">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-outline-danger">Eliminar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function informacionCliente(
+        idCliente,
+        nombreCliente,
+        apellidoCliente,
+        documentoCliente,
+        celularCliente,
+        correoCliente,
+        direccionCliente,
+        pathProducto
+      ) {
+        contenidoElimiar.innerHTML = `
+              <p>¿Estás seguro de que quieres eliminar tu perfil <samp class="text-danger">${nombreCliente}</samp> ?</p>
+              `;
+            eliminar.setAttribute('action', `/v1/eliminarClientes/${idCliente}`);
+        idnuevo.value = idCliente;
+        nombre.value = nombreCliente;
+        apellido.value = apellidoCliente;
+        documento.value = documentoCliente;
+        celular.value = celularCliente;
+        email.value = correoCliente;
+        direccion.value = direccionCliente;
+        rutaImagenVieja.value = pathProducto;
+  
+        console.log(idCliente, 'SOY EL ID');
+      }
+    </script>
+  <% } else if (rol === "empleado") { %>
+     <%- include('../partials/navEmpleado') %>
+     <section style="background-color: #eee;">
+      <div class="container py-5">
+        <%misDatos.forEach(function (datoEmpleado) { %>
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="card mb-4">
+              
+              <div class="card-body text-center">
+                <img src="<%= datoEmpleado.path %>" alt="avatar"
+                  class="rounded-circle img-fluid" style="width: 150px;">
+                <h5 class="my-3"><%= datoEmpleado.nombre %></h5>
+                <p class="text-muted mb-1"><%= datoEmpleado.rol %></p>
+              </div>
+              
+            </div>
+           
+          </div>
+          <div class="col-lg-8">
+            <div class="card mb-4">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Nombre completo</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0"><%= datoEmpleado.nombre %> <%= datoEmpleado.apellido %></p>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">correo</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0"><%= datoEmpleado.email %></p>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">documento</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0"><%= datoEmpleado.documento %></p>
+                  </div>
+                </div>
+                <hr>
+
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+    <% }) %>
+    <% } else if (rol === "administrador") { %>
+    <%- include('../partials/navAdministrador') %>
+    <section style="background-color: #eee;">
+      <div class="container py-5">
+        <%misDatos.forEach(function (datoAdministrador) { %>
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="card mb-4">
+              
+              <div class="card-body text-center">
+                
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+                  class="rounded-circle img-fluid" style="width: 150px;">
+                <h5 class="my-3"><%= datoAdministrador.nombre %></h5>
+                <p class="text-muted mb-1"><%= datoAdministrador.rol %></p>
+                <div class="d-flex justify-content-center mb-2">
+                  <button type="button" class="btn btn-dark">Actualizar</button>
+                </div>
+              </div>
+              
+            </div>
+           
+          </div>
+          <div class="col-lg-8">
+            <h1 class="text-center mb-4">ADMINISTRADOR</h1>
+            <div class="card mb-4">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Nombre completo</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0"><%= datoAdministrador.nombre %> <%= datoAdministrador.apellido %></p>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">correo</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0"><%= datoAdministrador.email %></p>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">documento</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0"><%= datoAdministrador.documento %></p>
+                  </div>
+                </div>
+                <hr>
+
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+    <% }); %>
+  <% }%>
+
+  <%- include('../partials/footer') %>
+      
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

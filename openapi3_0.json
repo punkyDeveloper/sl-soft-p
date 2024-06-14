@@ -1,0 +1,458 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API de Mi Empresa",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/v1/agregarProducto": {
+      "post": {
+        "summary": "Agregar un producto",
+        "tags": [
+          "productos"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/productos"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Nuevo producto fue agregado"
+          }
+        }
+      }
+    },
+    "/v1/actualizarProducto/{id}": {
+      "post": {
+        "summary": "Actualizar un producto",
+        "tags": [
+          "productos"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "Se requiere un ID"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/productos"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Producto actualizado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/productos"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/listarProducto": {
+      "get": {
+        "summary": "Listar productos",
+        "tags": [
+          "productos"
+        ],
+        "responses": {
+          "200": {
+            "description": "Productos encontrados",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/productos"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/eliminarProducto/{id}": {
+      "get": {
+        "summary": "Eliminar un producto",
+        "tags": [
+          "productos"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "Se requiere un ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Producto eliminado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/productos"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/registrarEmpleado": {
+      "post": {
+        "summary": "Agregar un empleado",
+        "tags": [
+          "empleados"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/empleados"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Empleado registrado"
+          }
+        }
+      }
+    },
+    "/v1/actualizarEmpleado/{id}": {
+      "post": {
+        "summary": "Actualizar un empleado",
+        "tags": [
+          "empleados"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "Se requiere un ID"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/empleados"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Empleado actualizado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/empleados"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/listarEmpleado": {
+      "get": {
+        "summary": "Listar empleados",
+        "tags": [
+          "empleados"
+        ],
+        "responses": {
+          "200": {
+            "description": "Empleados encontrados",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/empleados"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/eliminarEmpleado/{id}": {
+      "get": {
+        "summary": "Eliminar un empleado",
+        "tags": [
+          "empleados"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "Se requiere un ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Empleado eliminado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/empleados"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/guardarVenta": {
+      "post": {
+        "summary": "Registrar una venta",
+        "tags": [
+          "ventas"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ventas"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Venta registrada"
+          }
+        }
+      }
+    },
+    "/v1/listarVenta": {
+      "get": {
+        "summary": "Listar ventas",
+        "tags": [
+          "ventas"
+        ],
+        "responses": {
+          "200": {
+            "description": "Ventas encontradas",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ventas"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/eliminarVenta/{id}": {
+      "get": {
+        "summary": "Eliminar una venta",
+        "tags": [
+          "ventas"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "Se requiere un ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Venta eliminada",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ventas"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "productos": {
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "type": "string",
+            "description": "Se necesita un nombre para el producto"
+          },
+          "talla": {
+            "type": "string",
+            "description": "Se necesita una talla para el producto"
+          },
+          "referencia": {
+            "type": "string",
+            "description": "Se necesita una referencia para identificar el producto"
+          },
+          "cantidad": {
+            "type": "number",
+            "description": "Se necesita la cantidad de unidades disponibles"
+          },
+          "precio": {
+            "type": "number",
+            "description": "Se necesita el precio por unidad"
+          },
+          "categoria": {
+            "type": "string",
+            "description": "Se necesita una categoría para agrupar los productos"
+          }
+        },
+        "required": [
+          "nombre",
+          "talla",
+          "referencia",
+          "cantidad",
+          "precio",
+          "categoria"
+        ],
+        "example": {
+          "nombre": "pantalón",
+          "talla": "M",
+          "referencia": "P008",
+          "cantidad": 50,
+          "precio": 100000,
+          "categoria": "Pantalones"
+        }
+      },
+      "empleados": {
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "type": "string",
+            "description": "Se necesita un nombre del empleado"
+          },
+          "apellido": {
+            "type": "string",
+            "description": "Se requiere un apellido del empleado"
+          },
+          "documento": {
+            "type": "string",
+            "description": "Se requiere un documento del empleado"
+          },
+          "email": {
+            "type": "string",
+            "description": "Se requiere un email"
+          },
+          "estado": {
+            "type": "string",
+            "description": "Se requiere el estado del empleado"
+          },
+          "password": {
+            "type": "string",
+            "description": "Se requiere una clave del empleado"
+          },
+          "cargo": {
+            "type": "string",
+            "description": "Se requiere especificar el cargo del empleado"
+          },
+          "rol": {
+            "type": "string",
+            "description": "Se requiere definir el rol del empleado"
+          }
+        },
+        "required": [
+          "nombre",
+          "apellido",
+          "documento",
+          "email",
+          "estado",
+          "password",
+          "cargo",
+          "rol"
+        ],
+        "example": {
+          "nombre": "Leandro",
+          "apellido": "Badillo Giraldo",
+          "documento": 17283498877,
+          "email": "leo@gmail.com",
+          "estado": true,
+          "password": "Leandro123",
+          "cargo": "Supervisor",
+          "rol": "Empleado"
+        }
+      },
+      "ventas": {
+        "type": "object",
+        "properties": {
+          "cliente": {
+            "type": "object",
+            "description": "Se necesitan los datos del cliente"
+          },
+          "productos": {
+            "type": "array",
+            "description": "Se requieren los IDs de los productos"
+          },
+          "metodoPago": {
+            "type": "string",
+            "description": "Se requiere el método de pago"
+          }
+        },
+        "required": [
+          "cliente",
+          "productos",
+          "metodoPago"
+        ],
+        "example": {
+          "cliente": "6514a85316360d6c43b77cc7",
+          "productos": [
+            "65289cedfb3ea3e6f81bc7e4",
+            "6528b4c6511c5a6745c911b6"
+          ],
+          "metodoPago": "Cuando llegue le digo"
+        }
+      }
+    }
+  }
+}

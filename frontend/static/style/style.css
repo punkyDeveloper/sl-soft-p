@@ -1,0 +1,234 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+#p{position: sticky;
+top: 0;
+z-index: 1;
+}
+/*carrucel*/
+
+
+
+/* Estilos para dispositivos de escritorio (ancho de pantalla mayor o igual a 1024px) */
+@media (min-width: 1024px) {
+  #img {
+    width: 100%;
+    height: 70vh;
+  
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+#img {
+    width: 100%;
+    height: 30%;
+}
+}
+
+/* Estilos para dispositivos móviles (ancho de pantalla menor a 768px) */
+@media (max-width: 767px) {
+#img {
+  width: 100%;
+  height: 30vh;
+}
+}
+.covertext {
+position: absolute; /* To make the div to be place anywhere. It is out of the document flow */
+top: 200px; /* The distance between the div with the top of document */
+left: 0px; /* Make the div full width */
+right: 0px; /* Make the div full width */
+}
+
+.title {
+font-family: Verdana;
+font-weight: 600;
+font-size: 60px;
+color: #000000;
+text-align: center;
+}
+
+.subtitle {
+font-family: Verdana;
+font-size: 23px;
+color: #000000;
+text-align: center;
+}
+
+.explore {
+text-align: center;
+margin-top: 10px;
+}
+
+.explore .btn-lg,
+.explore .btn-lg:hover {
+border-radius: 30px;
+padding: 15px 25px;
+font-size: 22px;
+background-image: none;
+background-color: #070707;
+border-color: #f1edec;
+color: #f5f4f4;
+}
+
+.btn,
+.btn:hover {
+border-radius: 0px;
+background-image: none;
+
+border-color: #fdfdfd;
+color: #f1f0f0;
+margin-bottom: 20px;
+box-shadow: none;
+outline: none;
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus {
+color: #000000;
+outline: none;
+}
+
+/* botones de image dobles*/
+
+
+.img{
+  height: 70vh;
+}
+/* Estilos para dispositivos de escritorio (ancho de pantalla mayor o igual a 1024px) */
+@media (min-width: 1024px) {
+  .img {
+    
+    height: 50vh;
+  
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+.img {
+    
+    height: 30%;
+}
+}
+
+/* Estilos para dispositivos móviles (ancho de pantalla menor a 768px) */
+@media (max-width: 767px) {
+.img {
+  
+  height: 30%;
+}
+}
+.iniciotext {
+position: absolute;
+top: 100px;
+left: 0px; 
+right: 0px;
+overflow: hidden;
+
+}
+
+/* Estilos para dispositivos móviles (ancho de pantalla menor a 768px) */
+@media (max-width: 767px) {
+  .iniciotext {
+    position: absolute;
+    top: 20px;
+    left: 0px; 
+    right: 0px;
+    overflow: hidden;
+  }
+  
+}
+
+
+
+.title2 {
+font-family: Verdana;
+font-weight: 600;
+font-size: 60px;
+color: #000000;
+text-align: center;
+padding: 5px;
+border-color: #bd0f0f;
+overflow: hidden;
+}
+@media (max-width: 767px) {
+  .title2 {
+    font-family: Verdana;
+    font-weight: 600;
+    font-size: 20px;
+    color: #000000;
+    text-align: center;
+    padding: 5px;
+    border-color: #bd0f0f;
+    overflow: hidden;
+  
+  }
+  
+}
+
+/*preguntas*/
+.se{
+display : flex;
+flex-direction : row;
+flex-wrap: nowrap ;
+
+}
+
+/*contacto g*/
+
+.s {
+padding: 2em 10px;
+background-color: rgb(247, 248, 248);
+}
+.aline{
+display : flex;
+flex-direction : row;
+justify-content: center;
+flex-wrap: wrap;
+
+
+}
+.mape{
+margin: 10px;
+}
+h1 {
+color: #fff;
+text-align: center;
+text-transform: uppercase;
+margin-bottom: 2em;
+}
+
+.l{
+    text-align: left;
+	margin: 5%;
+	width: 800;
+}
+
+.r{
+	text-align: left;
+	margin: 5%;
+	width: 300px;
+
+}
+.contac{
+	display: flex;
+	justify-content: center;
+}
+
+/* botones de image*/
+
+
+
+
+
+
+h2{
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,26 @@
+2023-12-16T15:50:10.309Z: No se encontro el correo ingresado
+2023-12-16T16:30:55.739Z: undefined Actualizo el producto: Nombre: Vestido Elegante Referencia: V4567
+2023-12-16T16:33:47.527Z: undefined Actualizo el producto: Nombre: Vestido Elegante Referencia: V4567
+2023-12-16T16:36:46.733Z: santiago@gmail.com Actualizo el producto: Nombre: Vestido Elegante Referencia: V4567
+2023-12-16T16:39:40.128Z: santiago@gmail.com Actualizo el producto: Nombre: Camiseta Deportiva Referencia: CD7890
+2023-12-16T16:41:12.262Z: santiago@gmail.com Elimino el producto: Nombre: Blusa Clara Referencia: B9876
+2023-12-16T17:00:52.481Z: santiago@gmail.com Registro el producto: Nombre: Buso  Referencia: B123
+2023-12-16T17:32:43.564Z: santiago@gmail.com Registro el empleado: leandro@gmail.com
+2023-12-16T17:39:52.206Z: santiago@gmail.com Registro el empleado: leandro@gmail.com
+2023-12-16T17:40:01.728Z: santiago@gmail.com Registro el empleado: leandroP@gmail.com
+2023-12-16T17:43:11.793Z: santiago@gmail.com Actualizo el empleado: leandroP@gmail.com
+2023-12-16T17:43:16.122Z: santiago@gmail.com Actualizo el empleado: leandroA@gmail.com
+2023-12-16T17:46:16.104Z: santiago@gmail.com Actualizo el empleado: leandroA@gmail.com
+2023-12-16T17:47:33.691Z: santiago@gmail.com Actualizo el empleado: leandroA@gmail.com
+2023-12-16T17:47:52.067Z: santiago@gmail.com Actualizo el empleado: leandroA@gmail.com
+2023-12-16T17:49:46.642Z: santiago@gmail.com Actualizo el empleado: leandroA@gmail.com
+2023-12-16T17:49:58.179Z: santiago@gmail.com Actualizo el empleado: leandroA@gmail.com
+2023-12-16T17:51:33.682Z: santiago@gmail.com Actualizo el empleado: leandroA@gmail.com
+2023-12-16T17:51:40.011Z: santiago@gmail.com Actualizo el empleado: leandroA@gmail.com
+2023-12-16T17:51:44.634Z: santiago@gmail.com Actualizo el empleado: leandroA@gmail.com
+2023-12-16T17:52:10.521Z: santiago@gmail.com Actualizo el empleado: leandroA@gmail.com
+2023-12-16T17:52:42.381Z: santiago@gmail.com Actualizo el empleado: leandroA@gmail.com
+2023-12-16T17:52:59.929Z: santiago@gmail.com Actualizo el empleado: leandroA@gmail.com
+2023-12-16T17:54:08.713Z: santiago@gmail.com Actualizo el empleado: leandroA@gmail.com
+2023-12-16T18:04:53.012Z: santiago@gmail.com Actualizo el empleado: leandroA@gmail.com
+2023-12-16T18:05:17.263Z: santiago@gmail.com Elimino el empleado: leandroP@gmail.com

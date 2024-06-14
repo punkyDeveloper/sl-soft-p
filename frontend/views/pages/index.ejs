@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <link href="../../static/img/logo/sl-soft.ico" rel="shortcut icon">
+  <title>SL-Soft</title>
+  <link rel="stylesheet" href="../../static/style/style.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">  
+  <!--bootstrap-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+  <!--nav-->
+  <% if (rol === null) { %>
+    <%- include('../partials/nav') %>
+  <% } else if (rol === "cliente") { %>
+    <%- include('../partials/navUsuario') %>
+  <% } %>
+
+  <!--carrucel-->
+  <section>
+    <div id="carruselindex" class="carousel slide " data-bs-ride="carousel">
+      <div class="carousel-inner text-center">
+        <div class="carousel-item active img-fluid">
+          <img src="../../static/img/portada/portada.jpg" id="img" alt="..." >
+          <div class="covertext">
+            <div class="col-lg-10" style="float:none; margin:0 auto;">
+              <h4 class="title text-light bg-dark">Las mejores prendas</h4>
+            </div>
+            <div class="col-xs-12 explore mt-5">
+              <a href="/v1/sl-catalogo"><button type="button" class="btn btn-lg explorebtn" data-toggle="modal" data-target="#r">Comprar ahora</button></a>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="../../static/img/portada/portada1.jpg" id="img"  alt="...">
+          <div class="covertext">
+            <div class="col-lg-10" style="float:none; margin:0 auto;">
+              <h4 class="title text-light bg-dark">Elegancia en cada detalle</h4>
+            </div>
+            <div class="col-xs-12 explore mt-5">
+              <a href="/v1/sl-catalogo"><button type="button" class="btn btn-lg explorebtn" data-toggle="modal" data-target="#r">Comprar ahora</button></a>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="../../static/img/portada/portada2.jpg" id="img" alt="...">
+          <div class="covertext">
+            <div class="col-lg-10" style="float:none; margin:0 auto;">
+              <h4 class="title text-light bg-dark">Tu estilo nuestras prendas</h4>
+            </div>
+            <div class="col-xs-12 explore mt-5">
+              <a href="/v1/sl-catalogo"><button type="button" class="btn btn-lg explorebtn" data-toggle="modal" data-target="#r">Comprar ahora</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carruselindex" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carruselindex" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </section>
+
+  <!--albun-->
+  <section>
+    <div class="album py-5 bg-light " id="catalogo">
+
+      <div class="text-center ">
+        <div class="titulo">
+          <h4>Inspírate con nuestras tendencias </h4>
+          <h4>y crea tu propio estilo.</h4>
+        </div>
+      </div> 
+
+      <div class="card-group m-5 ">
+        <div class="card m-2">
+          <img src="../../static/img/catalogo/mujer.jpg" class="card-img-top img" alt="...">
+          <div class="iniciotext">
+            <div class="col-lg-10" style="float:none; margin:0 auto;">
+              <a href="/v1/sl-catalogo" class="text-decoration-none"><h3 class="title2">MUJER</h3></a>
+              
+            </div>
+            <div class="col-xs-12 explore">
+              <a href="/v1/sl-catalogo"><button type="button" class="btn btn-success" data-toggle="modal" data-target="#r">Ver mas</button></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card m-2 ">
+          <img src="../../static/img/catalogo/hombre.jpg" class="card-img-top img" alt="...">
+
+          <div class="iniciotext">
+            <div class="col-lg-10" style="float:none; margin:0 auto;">
+              <a class="text-decoration-none" href="/v1/sl-catalogo"><h3 class="title2">HOMBRE</h3></a>
+              
+            </div>
+            <div class="col-xs-12 explore">
+              <a href="/v1/sl-catalogo"><button type="button" class="btn btn-success" data-toggle="modal" data-target="#r">Ver mas</button></a>
+            </div>
+          </div>
+        </div>
+    </div>
+  </section> 
+
+  <section>
+    <h1 class="text-dark m-5 " id="preguntas">PREGUNTAS FRECUENTES</h1> 
+    <div class="d-flex justify-content-center">
+      <div class="container row">
+        <div class="col-md-6 mb-3">
+          <img src="../../static/img/pexels-anna-tarazevich-5242824.jpg" width="100%">
+        </div>
+        <div class="col-md-6  ">
+          <div class="my-4 mt-4">
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    ¿Puedo cambiar mis artículos?
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <strong>Sí,</strong>  los cambios se podrán realizarse de color y/o talla sobre la misma referencia o en sustitución de otro artículo. El proceso de cambio debe iniciarse en los 15 días laborables posteriores a la recepción del pedido y el cliente deberá hacerse cargo de los gastos de envío que genere ese proceso.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    ¿Qué debo hacer si recibo un artículo incorrecto o defectuoso?
+                  </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <strong>sí,</strong>en alguna ocasión, por error, llegases a recibir un artículo no solicitado o con alguna tara o defecto, ponte en contacto con nuestro departamento de atención al cliente.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    ¿Es seguro comprar en la tienda online?
+                  </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <strong>Sí,</strong>  Puedes comprar con total tranquilidad, pues dedicamos un gran esfuerzo en disponer de recursos con los que garantizar la seguridad de tus compras y de tus datos.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+  </section>
+  
+    <section>
+      <h1 class="text-dark m-5 " id="contacto">Contáctanos</h1> 
+      <div class="d-flex justify-content-center">
+        <div class="container row">
+          <div class="col-md-7 mb-3">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.62444330854!2d-75.6085678241159!3d6.180994527046907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e46823b07fa76e7%3A0xd858c9c2ddf4b118!2sSENA%20Complejo%20Sur%20Itag%C3%BC%C3%AD!5e0!3m2!1ses!2sco!4v1700410777569!5m2!1ses!2sco" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <div class="col-md-5  ">
+            <div class="my-4 text-center">
+              <p>¡Tu opinión es clave para nosotros! En SL-SOFT, valoramos tus comentarios. Queremos conocer tus experiencias, ya sea positiva o desafiante, para mejorar nuestros servicios. Comparte tu opinión en la sección de comentarios. ¡Gracias por ayudarnos a ser mejores!</p>
+            </div>
+            <div class="mt-4">
+              <form action="/v1/opinion" method="get">
+                <div class="mb-4">
+                  <label for="email" class="form-label">Correo</label>
+                  <input type="email" class="form-control" name="email" placeholder="nombre@ejemplo.com">
+                </div>
+                <div class="mb-2">
+                  <label for="mensaje" class="form-label" >Tu opinión</label>
+                  <textarea class="form-control" id="mensaje" name="mensaje" rows="4" placeholder="Opinión"></textarea>
+                </div>
+                <div class="text-center">
+                  <button type="submit"class="btn btn-dark p-1 mt-2 px-5">Enviar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div> 
+   </section>
+      
+
+  <%- include('../partials/footer') %>
+
+
+ 
+      <!--bootstrap-->
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      
+    
+
+
+</body>
+</html>
