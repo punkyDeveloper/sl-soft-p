@@ -71,7 +71,7 @@ app.use(express.urlencoded({extended: true}));
 app.use('/static', express.static('./frontend/static'));
 
 // rutas
-app.use('/v1/', router);
+app.use('/', router);
 
 // puesto
 app.listen(PORT, () => {
