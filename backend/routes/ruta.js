@@ -13,7 +13,7 @@ const express = require('express');
 const router =express.Router();
 
 // vistas
-router.get('/', vistas.index1);
+router.get('/sl-ropa', vistas.index1);
 router.get('/sl-inicio', vistas.inicioSecion);
 
 
